@@ -1,5 +1,7 @@
 import React from "react";
 import "../Assests/CSS/Main.css"
+import img1 from "../Assests/Images/brown-boots.jpg"
+import img2 from "../Assests/Images/grey-boots.jpg"
 
 function SellBanner(){
     return(
@@ -8,13 +10,13 @@ function SellBanner(){
            
             < section >
             <div className="flex align-center center banner">
-                <img alt="Brown Boots" src="img/brown-boots.jpg" />
+                <img alt="Brown Boots" src={img1} />
                 <div className="banner-text">
                     <div className="text-light">Couples retreat weekend</div>
                     <div className="text-secondary">Save an extra 20%</div>
                     <div className="text-primary">when you buy 2 pairs of boots</div>
                 </div>
-                <img alt="Grey Boots" src="img/grey-boots.jpg" />
+                <img alt="Grey Boots" src={img2} />
             </div>
         </section >
       </div >
