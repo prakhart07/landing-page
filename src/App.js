@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from './Components/navbar';
 import Categories from './Components/Categories';
 import FullBanner from './Components/FullBanner';
-
+import SellBanner from './Components/SellBanner';
 import Hero from "./Components/Hero";
  
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/fullbanner" element={<FullBanner />} />
         <Route path="/hero" element={<Hero />} />
-       
+        <Route path = "/sellbanner" element = {<SellBanner/>}/>
         </Routes>
     </Router>
 
