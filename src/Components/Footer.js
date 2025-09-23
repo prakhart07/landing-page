@@ -1,5 +1,6 @@
 import React from "react";
 import "../Assests/CSS/Main.css"
+import img from"../Assests/Images/pluralsight-white.png"
 
 function Footer(){
     return(
@@ -57,11 +58,11 @@ function Footer(){
             {/* PS DEMO */}
             <section className="ps">
                 <div className="flex flex-column align-center">
-                    <img src="img/pluralsight-white.png" />
+                    <img src={img} />
                     <div className="demo">This site is created for demonstrative purposes only and does not offer any real products or services.</div>
                 </div>
             </section>
-            <div className="text-primary copyright">©Pluralsight 2018</div>
+            <div className="text-primary copyright">©Pluralsight 2025</div>
         </footer>
     );
 }
