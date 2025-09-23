@@ -15,6 +15,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/fullbanner" element={<FullBanner />} />
         <Route path="/hero" element={<Hero />} />
+       
         </Routes>
     </Router>
 
