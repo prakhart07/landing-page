@@ -16,7 +16,11 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/fullbanner" element={<FullBanner />} />
         <Route path="/hero" element={<Hero />} />
+<<<<<<< HEAD
+       
+=======
         <Route path = "/sellbanner" element = {<SellBanner/>}/>
+>>>>>>> 8899e530a261a564e5860d182809ab9a9768c2d1
         </Routes>
     </Router>
 
