@@ -189,7 +189,7 @@ section {
 }
 
 .hero {
-    background-image: url('../img/hero.jpg');
+    background-image: url('../Images/hero.jpg');
     height: 400px;
     background-size: cover;
     background-position: center center;
@@ -292,7 +292,7 @@ section {
 
 .full-banner-image {
     flex: 0 0 58.333333%;
-    background-image: url('../img/vista.jpg');
+    background-image: url('../Images/vista.jpg');
     background-size: cover;
     background-position: top center;
     min-height: 400px;
@@ -399,19 +399,19 @@ footer a:hover {
 }
 
 .twitter {
-    background-image: url('../img/twitter.svg');
+    background-image: url('../Images/twitter.svg');
 }
 
 .facebook {
-    background-image: url('../img/facebook.svg');
+    background-image: url('../Images/facebook.svg');
 }
 
 .instagram {
-    background-image: url('../img/instagram.svg');
+    background-image: url('../Images/instagram.svg');
 }
 
 .pinterest {
-    background-image: url('../img/pinterest.svg');
+    background-image: url('../Images/pinterest.svg');
 }
 
 .ps {

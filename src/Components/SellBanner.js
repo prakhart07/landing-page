@@ -20,3 +20,4 @@ function SellBanner(){
       </div >
     );
 }
+export default SellBanner;
