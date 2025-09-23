@@ -6,6 +6,7 @@ import Categories from './Components/Categories';
 import FullBanner from './Components/FullBanner';
 
 import Hero from "./Components/Hero";
+import SellBanner from './Components/SellBanner';
  
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/fullbanner" element={<FullBanner />} />
         <Route path="/hero" element={<Hero />} />
+        <Route path = "/sellbanner" element = {<SellBanner/>}/>
         </Routes>
     </Router>
 
