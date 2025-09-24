@@ -9,7 +9,7 @@ import Categories from "./Categories";
 function Mainscreen(){
     return(
  <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <SellBaner />
       <Categories />

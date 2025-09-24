@@ -8,10 +8,12 @@ import SellBanner from './Components/SellBanner';
 import Hero from "./Components/Hero";
 import Footer from "./Components/Footer"
 import Mainscreen from './Components/mainscreen';
+import Login from './Components/Login';
  
 function App() {
   return (
     <Router>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Mainscreen />} />
 
@@ -20,6 +22,8 @@ function App() {
         <Route path="/fullbanner" element={<FullBanner />} />
         <Route path="/hero" element={<Hero />} />
         <Route path = "/sellbanner" element = {<SellBanner/>}/> */}
+        <Route path="/login" element={<Login/>} />
+      
         </Routes>
         <Footer/>
     </Router>
