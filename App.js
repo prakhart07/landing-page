@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './Components/navbar';
 import Categories from './Components/Categories';
 import FullBanner from './Components/FullBanner';
-
-import Hero from "./Components/Hero";
 import SellBanner from './Components/SellBanner';
+import Hero from "./Components/Hero";
+import Contact from "./Components/ContactUs";
+import NewContact from "./Components/NewContact"
  
 function App() {
   return (
@@ -16,11 +17,10 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/fullbanner" element={<FullBanner />} />
         <Route path="/hero" element={<Hero />} />
-<<<<<<< HEAD
-       
-=======
         <Route path = "/sellbanner" element = {<SellBanner/>}/>
->>>>>>> 8899e530a261a564e5860d182809ab9a9768c2d1
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/newcontact" element={<NewContact/>} />
+        
         </Routes>
     </Router>
 

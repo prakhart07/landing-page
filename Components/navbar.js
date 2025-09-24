@@ -1,7 +1,5 @@
 import React from "react";
 import "../Assests/CSS/Main.css"
-import img1 from "../Assests/Images/carved-rock-logo.png"
-import img2 from "../Assests/Images/profile-pic.jpg"
 function Navbar(){
 
     return(
@@ -10,7 +8,7 @@ function Navbar(){
          {/* BRANDING */}
           <div className="flex align-center brand">
             <a href="#">
-              <img className="logo" alt="Carved Rock Fitness" src={img1} />
+              <img className="logo" alt="Carved Rock Fitness" src="img/carved-rock-logo.png" />
                 </a>
           </div>
           {/* SEARCH */}
@@ -33,7 +31,7 @@ function Navbar(){
               <div className="flex flex-column account">
                 John Doe <a href="#">Log Out</a>
               </div>
-              <div className="profile-pic"><img alt="John Doe" src={img2} /></div>
+              <div className="profile-pic"><img alt="John Doe" src="img/profile-pic.jpg" /></div>
             </div>
           </div>
       
