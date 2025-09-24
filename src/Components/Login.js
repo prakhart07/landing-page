@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Assests/CSS/login.css"; // optional styling
 
-function Login() {
+function Login({ setIsLoggedIn }) {
     const [page, setPage] = useState("login"); // login / signup / forget
     const [loginData, setLoginData] = useState({ email: "", password: "" });
     const [signupData, setSignupData] = useState({ name: "", email: "", password: "" });
     const [forgetData, setForgetData] = useState({ email: "" });
+     const [error, setError] = useState("");
 
     const navigate = useNavigate();
 
@@ -17,14 +18,18 @@ function Login() {
         if (type === "signup") setSignupData({ ...signupData, [name]: value });
         if (type === "forget") setForgetData({ ...forgetData, [name]: value });
     };
-
-    // Form submit handlers
-    const handleLogin = (e) => {
+ const handleLogin = (e) => {
         e.preventDefault();
         console.log("Login data:", loginData);
-        alert("Logged in!");
-        // navigate to dashboard after login
-        // navigate("/dashboard");
+
+        // Temporary hardcoded credentials
+        if (loginData.email === "user@example.com" && loginData.password === "1234") {
+            setError(""); // clear error
+             if (setIsLoggedIn) setIsLoggedIn(true);
+            navigate("/dashboard"); // ✅ redirect to dashboard
+        } else {
+            setError("Invalid email or password"); // show error
+        }
     };
 
     const handleSignup = (e) => {
