@@ -71,21 +71,34 @@ section {
 }
 
 /* ===== UPDATED NAVBAR STYLING ===== */
+/* --- Global Utilities (Assuming these are from your code) --- */
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+/* --- Main Navigation Container --- */
 .header-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-    background-color: #fff;
+    /* Adjust padding to match the visual spacing */
+    padding: 10px 30px; 
+    background-color: #f7f7f7; /* Slightly off-white background */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header-nav .container {
-    display: none; /* This container is empty in your HTML, so no styles are needed here. */
-}
-
 .brand {
-    padding-right: 20px;
+    /* Ensures the logo is aligned and has space */
+    padding-right: 25px;
+    /* Prevents the logo from shrinking */
+    flex-shrink: 0; 
 }
 
 .logo {
@@ -93,46 +106,73 @@ section {
     width: auto;
 }
 
-.search-button {
-    display: none;
-}
-
+/* --- The main flexible container for Search/Nav/Profile --- */
 .flex-one {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    /* This is critical: pushes the profile to the right edge */
+    justify-content: space-between; 
     flex-grow: 1;
-    padding-left: 20px;
+    padding-left: 20px; /* Space from the logo */
 }
 
+/* --- Search Bar and Button Styling --- */
 .search-box {
+    /* Replaces your original .search-box padding/sizing */
     width: 300px;
     padding: 10px 15px;
     border: 1px solid #ccc;
-    border-radius: 25px;
+    /* Removes the border radius and right border to join with the button */
+    border-radius: 0; 
+    border-right: none; 
     font-size: 16px;
     outline: none;
+    height: 40px; 
+    box-sizing: border-box; /* Includes padding/border in height calculation */
 }
 
-.search-box:focus {
-    border-color: #007bff;
+.search-button {
+    /* Styles for the gray 'SEARCH' button */
+    background-color: #b0b0b0; 
+    color: #fff;
+    border: 1px solid #b0b0b0; 
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0; 
+    height: 40px; 
+    /* Ensures the button border is on the right */
+    border-left: none; 
+    text-transform: uppercase;
 }
 
+/* --- Navigation Links (.nav-list) --- */
 .nav-list {
-    display: flex;
-    align-items: center;
+    /* Overrides default ul/li styles */
     list-style: none;
     margin: 0;
-    padding: 0;
-    gap: 30px;
+    padding: 0 0 0 40px; /* Space and padding from search box */
+    display: flex;
+    align-items: center;
+    /* Space between links */
+    gap: 30px; 
+    /* Adds the vertical gray line separator to the left */
+    border-left: 1px solid #ddd; 
+    height: 40px; 
+}
+
+.nav-list li {
+    /* Remove any default list item formatting */
+    display: inline-block;
 }
 
 .nav-list li a {
     text-decoration: none;
-    color: #faa541;
+    color: #faa541; /* Orange color from your image */
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
+    white-space: nowrap; /* Prevents long links like 'Bags & Travel' from wrapping */
     transition: color 0.3s;
 }
 
@@ -140,21 +180,43 @@ section {
     color: #364147;
 }
 
+/* --- Profile Section --- */
 .profile {
     display: flex;
     align-items: center;
     gap: 10px;
+    /* Prevents the profile from taking unnecessary space */
+    flex-shrink: 0; 
 }
 
 .account {
-    display: flex;
+    /* Stacks John Doe and Log Out using your existing .flex-column */
+    align-items: flex-end; /* Right-aligns the text */
+    font-size: 14px;
+}
+
+/* Target the text nodes inside account */
+.account > span, .account > a {
+    /* Ensure the direct text 'John Doe' is styled if not wrapped */
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.account a {
+    color: #e56d36; /* Orange color for Log Out */
+    text-decoration: none;
+    font-size: 12px;
 }
 
 .profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 50px; 
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
+    /* Optional: Small border */
+    border: 1px solid #ccc; 
 }
 
 .profile-pic img {
@@ -163,6 +225,13 @@ section {
     object-fit: cover;
 }
 
+/* --- Important: Fix for the inner div inside flex-one --- */
+/* Your HTML has the search form and nav-list inside an extra div. 
+This CSS targets that div to ensure the search and nav links stay together. */
+.flex-one > div:first-child {
+    display: flex;
+    align-items: center;
+}
 /* ===== Rest of your CSS (unchanged) ===== */
 .hero {
   background-image: url('../Images/hero.jpg');
