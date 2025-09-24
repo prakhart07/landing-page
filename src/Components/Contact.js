@@ -7,6 +7,7 @@ function Contact() {
         name: '',
         email: '',
         phone: '',
+        message:'',
     });
 
     const [emailError, setEmailError] = useState('');
@@ -76,7 +77,7 @@ function Contact() {
                 <input
                     type="text"
                     name="Message"
-                    value={data.Message}
+                    value={data.message}
                     onChange={handleChange}
                 />
 
@@ -85,6 +86,6 @@ function Contact() {
         </div>
     );
 }
-//hello
+
 
 export default Contact;
