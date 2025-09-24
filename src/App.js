@@ -2,27 +2,24 @@ import logo from './logo.svg';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './Components/navbar';
-import Categories from './Components/Categories';
-import FullBanner from './Components/FullBanner';
-import SellBanner from './Components/SellBanner';
-import Hero from "./Components/Hero";
 import Footer from "./Components/Footer"
 import Mainscreen from './Components/mainscreen';
 import Login from './Components/Login';
+import Contact from './Components/Contact';
+import Dashboard from './Components/dashboard';
+import { useState } from "react";
  
 function App() {
+
+   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <Router>
-      <Navbar/>
+     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
         <Route path="/" element={<Mainscreen />} />
-
-        {/* <Route path="/navbar" element={<Navbar />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/fullbanner" element={<FullBanner />} />
-        <Route path="/hero" element={<Hero />} />
-        <Route path = "/sellbanner" element = {<SellBanner/>}/> */}
-        <Route path="/login" element={<Login/>} />
+        <Route path="/contact" element={<Contact />} />
+         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
       
         </Routes>
         <Footer/>

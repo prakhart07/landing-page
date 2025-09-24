@@ -1,48 +1,57 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../Assests/CSS/Main.css"; // Make sure path is correct
+import { submitContactForm } from "./Serverapi";
+import "../Assests/CSS/Main.css";
 
 function Contact() {
     const [data, setData] = useState({
         name: '',
         email: '',
         phone: '',
-        message:'',
+        message: '',
     });
+    const [loading, setLoading] = useState(false);
+    const [statusMessage, setStatusMessage] = useState('');
 
-    const [emailError, setEmailError] = useState('');
-    const [phone, setphone] = useState('')
-
-    const navigate = useNavigate(); // If you want to navigate after submit (not required)
-
-    // Handle input change
     function handleChange(e) {
         const { name, value } = e.target;
         setData(prev => ({
-            prev,
+            ...prev,
             [name]: value
         }));
-        console.log(`Field changed: ${name} = ${value}`);
     }
 
-    // Handle form submit
-    function handleSubmit(e) {
-        e.preventDefault(); // Prevents page reload
-        if (emailError) {
-            alert('please enter a vaild email')
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setStatusMessage('');
+
+        
+        if (!data.email.includes('@') || !data.email.includes('.')) {
+            setStatusMessage('Please enter a valid email address.');
             return;
         }
-        if (phone < 10) {
-            alert("enter valid number");
+
+        if (data.phone.length !== 10) {
+            setStatusMessage('Please enter a valid 10-digit phone number.');
             return;
         }
-        // You can add localStorage, API calls, etc. here
+
+        setLoading(true);
+
+        try {
+            await submitContactForm(data);
+            setStatusMessage('Thank you! Your message has been sent successfully.');
+            setData({ name: '', email: '', phone: '', message: '' }); // Form reset
+        } catch (error) {
+            setStatusMessage('Failed to send message. Please try again.');
+        }
+
+        setLoading(false);
     }
 
     return (
         <div className="Container">
             <h2>Contact Us</h2>
-
+            
             <form onSubmit={handleSubmit}>
                 <label>Name</label>
                 <input
@@ -61,7 +70,6 @@ function Contact() {
                     onChange={handleChange}
                     required
                 />
-                {emailError && <p style={{ color: 'red', fontSize: '0.85rem' }}>{emailError}</p>}
 
                 <label>Phone No.</label>
                 <input
@@ -71,21 +79,32 @@ function Contact() {
                     onChange={handleChange}
                     required
                 />
-                {phone && <p style={{ color: 'red', fontSize: '0.85rem' }}>{phone}</p>}
-
+                
                 <label>Message</label>
                 <input
                     type="text"
-                    name="Message"
+                    name="message" // 'Message' से 'message' में बदला गया
                     value={data.message}
                     onChange={handleChange}
                 />
 
-                <button className="btn-sub" type="submit">Submit</button>
+                <button className="btn-sub" type="submit" disabled={loading}>
+                    {loading ? 'Submitting...' : 'Submit'}
+                </button>
             </form>
+            
+            {statusMessage && (
+                <p style={{ 
+                    color: statusMessage.includes('Successfully') ? 'green' : 'red', 
+                    marginTop: '1rem',
+                    textAlign: 'center' 
+                }}>
+                    {statusMessage}
+                </p>
+            )}
+            
         </div>
     );
 }
-
 
 export default Contact;
