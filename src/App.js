@@ -8,6 +8,9 @@ import Login from './Components/Login';
 import Contact from './Components/Contact';
 import Dashboard from './Components/dashboard';
 import { useState } from "react";
+import { Import } from 'lucide-react';
+
+ 
  
 function App() {
 
@@ -19,6 +22,7 @@ function App() {
         <Route path="/" element={<Mainscreen />} />
         <Route path="/contact" element={<Contact />} />
          <Route path="/dashboard" element={<Dashboard />} />
+        
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
       
         </Routes>
