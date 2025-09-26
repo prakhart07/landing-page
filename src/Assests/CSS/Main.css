@@ -85,168 +85,139 @@ section {
 }
 
 /* --- Main Navigation Container --- */
+/* ===== NAVBAR STYLING (Final for Navbar.js) ===== */
+
+/* Navbar wrapper */
 .header-nav {
-    display: flex;
-    align-items: center;
-    /* Adjust padding to match the visual spacing */
-    padding: 10px 30px; 
-    background-color: #f7f7f7; /* Slightly off-white background */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+  padding: 10px 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
+/* Branding / Logo */
 .brand {
-    /* Ensures the logo is aligned and has space */
-    padding-right: 25px;
-    /* Prevents the logo from shrinking */
-    flex-shrink: 0; 
+  flex-shrink: 0;
+  padding-right: 20px;
 }
-
 .logo {
-    height: 40px;
-    width: auto;
-}
-
-/* --- The main flexible container for Search/Nav/Profile --- */
-.flex-one {
-    display: flex;
-    align-items: center;
-    /* This is critical: pushes the profile to the right edge */
-    justify-content: space-between; 
-    flex-grow: 1;
-    padding-left: 20px; /* Space from the logo */
-}
-
-/* --- Search Bar and Button Styling --- */
-.search-box {
-    /* Replaces your original .search-box padding/sizing */
-    width: 300px;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    /* Removes the border radius and right border to join with the button */
-    border-radius: 0; 
-    border-right: none; 
-    font-size: 16px;
-    outline: none;
-    height: 40px; 
-    box-sizing: border-box; /* Includes padding/border in height calculation */
-}
-
-.search-button {
-    /* Styles for the gray 'SEARCH' button */
-    background-color: #b0b0b0; 
-    color: #fff;
-    border: 1px solid #b0b0b0; 
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 0; 
-    height: 40px; 
-    /* Ensures the button border is on the right */
-    border-left: none; 
-    text-transform: uppercase;
-}
-
-/* --- Navigation Links (.nav-list) --- */
-.nav-list {
-    /* Overrides default ul/li styles */
-    list-style: none;
-    margin: 0;
-    padding: 0 0 0 40px; /* Space and padding from search box */
-    display: flex;
-    align-items: center;
-    /* Space between links */
-    gap: 30px; 
-    /* Adds the vertical gray line separator to the left */
-    border-left: 1px solid #ddd; 
-    height: 40px; 
-}
-
-.nav-list li {
-    /* Remove any default list item formatting */
-    display: inline-block;
-}
-
-.nav-list li a {
-    text-decoration: none;
-    color: #faa541; /* Orange color from your image */
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    white-space: nowrap; /* Prevents long links like 'Bags & Travel' from wrapping */
-    transition: color 0.3s;
-}
-
-.nav-list li a:hover {
-    color: #364147;
-}
-
-/* --- Profile Section --- */
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* Prevents the profile from taking unnecessary space */
-    flex-shrink: 0; 
-}
-
-.account {
-    /* Stacks John Doe and Log Out using your existing .flex-column */
-    align-items: flex-end; /* Right-aligns the text */
-    font-size: 14px;
-}
-
-/* Target the text nodes inside account */
-.account > span, .account > a {
-    /* Ensure the direct text 'John Doe' is styled if not wrapped */
-    font-size: 14px;
-    color: #333;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-.account a {
-    color: #e56d36; /* Orange color for Log Out */
-    text-decoration: none;
-    font-size: 12px;
-}
-
-/* login btn  */
-.login-btn {
-  margin-left: 10px;
-  padding: 5px 10px;
-  background-color: #faa541;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  height: 40px;
+  width: auto;
   cursor: pointer;
 }
 
-.login-btn:hover {
+/* Flex area for search + nav + profile */
+.flex-one {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding-left: 20px;
+}
+.flex-one > div:first-child {
+  display: flex;
+  align-items: center;
+}
+
+/* Search */
+.search-box {
+  width: 280px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  height: 36px;
+  outline: none;
+}
+.search-button {
+  background-color: #faa541;
+  color: #fff;
+  border: 1px solid #faa541;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px;
+  padding: 8px 15px;
+  height: 36px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.search-button:hover {
   background-color: #e6953a;
 }
-/* login btn  */
+
+/* Nav links */
+.nav-list {
+  display: flex;
+  gap: 25px;
+  margin-left: 30px;
+  padding-left: 20px;
+  border-left: 1px solid #ddd;
+}
+.nav-list li a {
+  color: #faa541;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.nav-list li a:hover {
+  color: #364147;
+}
+
+/* Profile */
 .profile-pic {
-    width: 50px; 
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    /* Optional: Small border */
-    border: 1px solid #ccc; 
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  transition: transform 0.2s;
+}
+.profile-pic:hover {
+  transform: scale(1.05);
 }
 
-.profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Dropdown */
+.account-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 2000;
+}
+.account-dropdown .info {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+.account-dropdown .info p {
+  margin: 0;
+}
+.account-dropdown button {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.account-dropdown button:hover {
+  background: #f3f4f6;
+}
+.account-dropdown .logout {
+  color: #dc2626;
 }
 
-/* --- Important: Fix for the inner div inside flex-one --- */
-/* Your HTML has the search form and nav-list inside an extra div. 
-This CSS targets that div to ensure the search and nav links stay together. */
-.flex-one > div:first-child {
-    display: flex;
-    align-items: center;
-}
 /* ===== Rest of your CSS (unchanged) ===== */
 .hero {
   background-image: url('../Images/hero.jpg');
