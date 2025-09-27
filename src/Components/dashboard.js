@@ -10,9 +10,11 @@ import {
   FileText,
   Settings
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import "../Assests/CSS/dashboard.css";
 
 function Dashboard() {
+   const navigate = useNavigate();
   const [usersData, setUsersData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -93,6 +95,8 @@ function Dashboard() {
             </div>
           </div>
 
+
+         
           {loading ? (
             <div className="loader"></div>
           ) : (
@@ -144,9 +148,14 @@ function Dashboard() {
       {/* Sidebar */}
       <aside className="sidebar">
         <h3>Quick Actions</h3>
-        <button><Home /> Dashboard</button>
-        <button><Users /> Users</button>
-        <button><BarChart3 /> Analytics</button>
+        
+        {/* ✅ Dashboard button */}
+        <button onClick={() => navigate("/dashboard")}><Home /> Dashboard</button>
+
+       <button onClick={() => navigate("/users")}><Users /> Users</button>
+
+
+        <button onClick={() => navigate("/Analytics")}><BarChart3 /> Analytics</button>
         <button><FileText /> Reports</button>
         <button><Settings /> Settings</button>
 
