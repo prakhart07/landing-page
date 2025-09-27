@@ -338,3 +338,524 @@ th, td {
   font-size: 0.8rem;
   color: #6b7280;
 }
+
+
+/* user -page -css start  */
+.users-page {
+  display: flex;
+}
+
+.users-content {
+  flex: 1;
+  padding: 30px;
+  background: #f3f4f6;
+  min-height: 100vh;
+}
+
+.users-content h1 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.user-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.user-info h3 {
+  margin: 0 0 10px;
+}
+
+.user-info p {
+  margin: 5px 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.role {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.role.admin {
+  background: #f87171;
+  color: #fff;
+}
+
+.role.user {
+  background: #60a5fa;
+  color: #fff;
+}
+
+.card-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fbbf24;
+  color: #111827;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.edit-btn:hover {
+  background: #f59e0b;
+}
+
+.delete-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f87171;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+}
+/* dashboard.css ke end me add karo */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: red;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.close-btn:hover {
+  background: darkred;
+}
+.modal {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+
+.modal-content {
+  background:#fff;
+  padding:30px;
+  border-radius:10px;
+  width:400px;
+  max-width:90%;
+  position:relative;
+}
+
+.large-modal {
+  width:500px;
+}
+
+.close-btn {
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:red;
+  color:white;
+  border:none;
+  border-radius:50%;
+  width:25px;
+  height:25px;
+  cursor:pointer;
+}
+
+.edit-form label {
+  display:block;
+  margin-top:10px;
+  font-weight:600;
+}
+.edit-form input, .edit-form select {
+  width:100%;
+  padding:8px;
+  margin-top:5px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+.styled-btn {
+  margin-top:15px;
+  padding:10px 20px;
+  background:#1e90ff;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+.styled-btn:hover {
+  background:#0b63d1;
+}
+/* Modal fade-in + slide-down */
+.modal {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  opacity:0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity:1; }
+}
+
+.modal-content {
+  background:#fff;
+  padding:30px;
+  border-radius:10px;
+  width:400px;
+  max-width:90%;
+  position:relative;
+  transform: translateY(-30px);
+  animation: slideDown 0.3s forwards;
+}
+
+.large-modal {
+  width:500px;
+}
+
+@keyframes slideDown {
+  to { transform: translateY(0); }
+}
+
+/* Close button hover */
+.close-btn:hover {
+  background:#ff4c4c;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+/* Save & Edit buttons hover */
+.styled-btn:hover {
+  background:#0b63d1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Table row hover effect */
+.table-container tbody tr:hover {
+  background: #f0f8ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Action buttons hover */
+.action-btn {
+  margin-right:5px;
+  padding:5px 8px;
+  border-radius:5px;
+  transition:0.3s;
+}
+.action-btn.edit:hover { background:#1e90ff; color:white; }
+.action-btn.view:hover { background:#00b894; color:white; }
+.action-btn.delete:hover { background:#ff4c4c; color:white; }
+.users-page-container h1 {
+  font-size: 2.2rem;        /* Thoda bada aur prominent */
+  font-weight: 700;          /* Bold heading */
+  color: #1e90ff;            /* Nice blue accent color */
+  text-align: center;        /* Centered */
+  margin-bottom: 30px;       /* Space below heading */
+  text-transform: uppercase; /* Optional: uppercase letters */
+  letter-spacing: 1px;       /* Slight spacing between letters */
+  position: relative;
+}
+
+/* Decorative underline effect */
+.users-page-container h1::after {
+  content: "";
+  display: block;
+  width: 60px;               /* Width of underline */
+  height: 4px;               /* Thickness of underline */
+  background: #1e90ff;       /* Same color as heading */
+  margin: 8px auto 0;        /* Centered below heading */
+  border-radius: 2px;        /* Rounded edges */
+  transition: width 0.3s ease;
+}
+
+/* Hover effect: underline expands */
+.users-page-container h1:hover::after {
+  width: 100px;
+}
+/* Users Controls: Search, Filter, Add Button */
+.users-controls {
+  display: flex;
+  justify-content: flex-end; /* Align items to right */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Responsive for mobile */
+}
+
+/* Search Input */
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #faa541;
+  box-shadow: 0 0 5px rgba(250, 165, 65, 0.5);
+}
+
+/* Status Filter Dropdown */
+.status-filter {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.status-filter:focus {
+  outline: none;
+  border-color: #faa541;
+  box-shadow: 0 0 5px rgba(250, 165, 65, 0.5);
+}
+
+/* Styled Add Button */
+.styled-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  background-color: #faa541;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.styled-btn:hover {
+  background-color: #e59438;
+  transform: translateY(-2px);
+}
+/* user page css end */
+
+
+
+/* analytics.css start */
+
+/* Container */
+.analytics-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+}
+
+/* Header */
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.analytics-header h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111827;
+}
+.header-buttons button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.header-buttons button:hover {
+  background: #e0e7ff;
+  border-color: #6366f1;
+}
+.header-buttons button.active {
+  background: #6366f1;
+  color: white;
+  border-color: #6366f1;
+}
+.header-buttons .primary {
+  background: #6366f1;
+  color: white;
+  border: none;
+}
+.header-buttons .primary:hover {
+  background: #4f46e5;
+}
+
+/* KPI Grid */
+
+ .kpi-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center horizontally */
+  gap: 20px; /* space between cards */
+  margin: 2rem 0;
+}
+
+.kpi-card {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px; /* min size for responsiveness */
+  min-height: 150px; /* ensures square look */
+  flex: 1 1 150px;  /* grow & shrink */
+  max-width: 200px; /* prevents card from getting too wide */
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.kpi-card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.kpi-card p {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Charts Grid */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.chart-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.chart-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+.chart-card h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #111827;
+}
+.chart-placeholder {
+  height: 200px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+.chart-placeholder:hover {
+  background: #e5e7eb;
+}
+
+/* Top Users List */
+.chart-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.chart-card li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s ease;
+}
+.chart-card li:hover {
+  background: #f3f4f6;
+}
+.chart-card li:last-child {
+  border-bottom: none;
+}
+ 
