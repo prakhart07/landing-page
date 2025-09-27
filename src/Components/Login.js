@@ -7,49 +7,82 @@ function Login({ setIsLoggedIn }) {
     const [loginData, setLoginData] = useState({ email: "", password: "" });
     const [signupData, setSignupData] = useState({ name: "", email: "", password: "" });
     const [forgetData, setForgetData] = useState({ email: "" });
-     const [error, setError] = useState("");
+    const [error, setError] = useState("");
 
     const navigate = useNavigate();
 
-    // Generic handle change for forms
+    // Generic handle change
     const handleChange = (e, type) => {
         const { name, value } = e.target;
         if (type === "login") setLoginData({ ...loginData, [name]: value });
         if (type === "signup") setSignupData({ ...signupData, [name]: value });
         if (type === "forget") setForgetData({ ...forgetData, [name]: value });
     };
- const handleLogin = (e) => {
-        e.preventDefault();
-        console.log("Login data:", loginData);
 
-        // Temporary hardcoded credentials
-        if (loginData.email === "user@example.com" && loginData.password === "1234") {
-            setError(""); // clear error
-             if (setIsLoggedIn) setIsLoggedIn(true);
-            navigate("/dashboard"); // ✅ redirect to dashboard
+    // Get users from localStorage
+    const getUsers = () => JSON.parse(localStorage.getItem("users")) || [];
+
+    // Save users to localStorage
+    const saveUsers = (users) => localStorage.setItem("users", JSON.stringify(users));
+
+    // Login
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const users = getUsers();
+        const user = users.find(
+            (u) => u.email === loginData.email && u.password === loginData.password
+        );
+
+        if (user) {
+            setError("");
+            localStorage.setItem("currentUser", JSON.stringify(user));
+            setIsLoggedIn?.(true);
+            navigate("/dashboard");
         } else {
-            setError("Invalid email or password"); // show error
+            setError("Invalid email or password");
         }
     };
 
+    // Signup
     const handleSignup = (e) => {
         e.preventDefault();
-        console.log("Signup data:", signupData);
+        const users = getUsers();
+
+        if (users.some((u) => u.email === signupData.email)) {
+            setError("User already exists with this email");
+            return;
+        }
+
+        const newUser = { ...signupData };
+        users.push(newUser);
+        saveUsers(users);
+
         alert("Signup successful!");
-        setPage("login"); // redirect to login
+        setSignupData({ name: "", email: "", password: "" });
+        setPage("login");
+        setError("");
     };
 
+    // Forget password
     const handleForget = (e) => {
         e.preventDefault();
-        console.log("Forget password data:", forgetData);
-        alert("Password reset link sent!");
-        setPage("login"); // redirect to login
+        const users = getUsers();
+        const user = users.find((u) => u.email === forgetData.email);
+        if (user) {
+            alert(`Password for ${user.email}: ${user.password}`);
+        } else {
+            alert("Email not found.");
+        }
+        setForgetData({ email: "" });
+        setPage("login");
     };
 
+
+   
     return (
         <div className="auth-container">
             {page === "login" && (
-                <div className="login-form">
+                <div className="login-form-tag">
                     <h2>Login</h2>
                     <form onSubmit={handleLogin}>
                         <input
@@ -70,6 +103,7 @@ function Login({ setIsLoggedIn }) {
                         />
                         <button type="submit">Login</button>
                     </form>
+                    {error && <p style={{ color: "red" }}>{error}</p>}
                     <p>
                         <span style={{ cursor: "pointer", color: "blue" }} onClick={() => setPage("signup")}>
                             Sign Up
@@ -83,7 +117,7 @@ function Login({ setIsLoggedIn }) {
             )}
 
             {page === "signup" && (
-                <div className="signup-form">
+                <div className="signup-form-tag">
                     <h2>Sign Up</h2>
                     <form onSubmit={handleSignup}>
                         <input
@@ -112,6 +146,7 @@ function Login({ setIsLoggedIn }) {
                         />
                         <button type="submit">Sign Up</button>
                     </form>
+                    {error && <p style={{ color: "red" }}>{error}</p>}
                     <p>
                         <span style={{ cursor: "pointer", color: "blue" }} onClick={() => setPage("login")}>
                             Back to Login
@@ -141,6 +176,7 @@ function Login({ setIsLoggedIn }) {
                     </p>
                 </div>
             )}
+
         </div>
     );
 }
